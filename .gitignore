@@ -1,5 +1,9 @@
 node_modules/
-dist/
+# Built single-file bundles are committed so the plugin installs straight from GitHub.
+dist/*
+!dist/server.js
+!dist/server.js.LEGAL.txt
+!dist/guard.js
 *.mcpb
 .DS_Store
 # Never commit real exports. Test fixtures are synthetic and live in test/fixtures.

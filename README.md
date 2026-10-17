@@ -108,12 +108,15 @@ member names with Claude** off unless you have decided you want it on.
 
 ### Claude Code
 
-After `npm run build`, add this folder as a local plugin marketplace and install from it:
+Install straight from GitHub:
 
 ```sh
-claude plugin marketplace add /path/to/mindbody-attendance-trends
+claude plugin marketplace add alex454-byte/mindbody-attendance-trends
 claude plugin install mindbody-attendance-trends@mindbody-attendance-trends
 ```
+
+To build from source instead, run `npm ci && npm run build`, then use the folder path in place of
+`alex454-byte/mindbody-attendance-trends`.
 
 Or try it for one session with `claude --plugin-dir /path/to/mindbody-attendance-trends`.
 
