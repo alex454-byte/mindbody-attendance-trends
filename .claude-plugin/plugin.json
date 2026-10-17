@@ -1,0 +1,29 @@
+{
+  "name": "mindbody-attendance-trends",
+  "displayName": "Mindbody Attendance Trends (unofficial)",
+  "version": "0.1.0",
+  "description": "Find regulars whose attendance is slipping, from Mindbody report exports, on your own computer. Claude sees codes and counts; names stay in a local browser page.",
+  "author": { "name": "Richard Froom" },
+  "license": "MIT",
+  "keywords": ["mindbody", "attendance", "retention", "privacy"],
+  "userConfig": {
+    "share_names_with_claude": {
+      "type": "boolean",
+      "title": "Share member names with Claude",
+      "description": "Off (default): Claude sees member codes and numbers only. On: tool results include names.",
+      "default": false
+    }
+  },
+  "mcpServers": {
+    "mindbody-attendance-trends": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/server.js"],
+      "env": {
+        "MAT_SHARE_NAMES": "${user_config.share_names_with_claude}",
+        "MAT_DATA_DIR": "${CLAUDE_PLUGIN_DATA}"
+      }
+    }
+  },
+  "hooks": "./hooks/hooks.json",
+  "skills": "./skills/"
+}

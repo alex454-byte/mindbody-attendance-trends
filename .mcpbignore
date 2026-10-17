@@ -1,0 +1,15 @@
+src/
+test/
+scripts/
+skills/
+hooks/
+.claude-plugin/
+node_modules/
+*.mcpb
+*.csv
+*.xlsx
+*.xls
+tsconfig.json
+package-lock.json
+.gitignore
+.mcpbignore

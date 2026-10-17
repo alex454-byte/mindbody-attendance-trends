@@ -1,0 +1,41 @@
+{
+  "manifest_version": "0.3",
+  "name": "mindbody-attendance-trends",
+  "display_name": "Mindbody Attendance Trends (unofficial)",
+  "version": "0.1.0",
+  "description": "Find regulars whose attendance is slipping, from Mindbody report exports, on your own computer.",
+  "long_description": "Reads the Attendance without Revenue export (CSV or Excel) and, optionally, Autopay Detail (on hold) and Membership exports. Finds regulars whose last 3 weeks fell well below their usual. Claude sees member codes and counts; names appear only in a report page that opens in your browser. Unofficial; not affiliated with Mindbody.",
+  "author": { "name": "Richard Froom" },
+  "license": "MIT",
+  "keywords": ["mindbody", "attendance", "retention", "fitness", "local", "privacy"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/server.js"],
+      "env": {
+        "MAT_SHARE_NAMES": "${user_config.share_names_with_claude}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "load_exports", "description": "Read Mindbody exports on this computer; returns counts only." },
+    { "name": "map_columns", "description": "Choose which header holds each field when detection is unsure." },
+    { "name": "slipping_regulars", "description": "Regulars whose last 3 weeks fell to 60% of usual or less, as member codes." },
+    { "name": "open_report", "description": "Open a local report page with names in the default browser." }
+  ],
+  "user_config": {
+    "share_names_with_claude": {
+      "type": "boolean",
+      "title": "Share member names with Claude",
+      "description": "Off: Claude sees member codes like M-0147 and numbers, and names appear only in the browser report. On: Claude also sees names, which are then sent to Anthropic as part of the chat.",
+      "default": false,
+      "required": false
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=20.0.0" }
+  }
+}

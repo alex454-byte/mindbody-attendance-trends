@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.mcpb
+.DS_Store
+# Never commit real exports. Test fixtures are synthetic and live in test/fixtures.
+*.csv
+*.xlsx
+*.xls
+!test/fixtures/*.csv
+!test/fixtures/*.xlsx

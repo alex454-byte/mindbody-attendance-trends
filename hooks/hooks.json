@@ -1,0 +1,13 @@
+{
+  "description": "Keep Claude's Read, Grep and Bash tools away from exports loaded by this plugin and from its report folder.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Grep|Bash|NotebookRead",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/dist/guard.js\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

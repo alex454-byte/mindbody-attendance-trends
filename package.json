@@ -1,0 +1,34 @@
+{
+  "name": "mindbody-attendance-trends",
+  "version": "0.1.0",
+  "description": "Find regulars whose attendance is slipping, from Mindbody report exports, on your own computer. Unofficial; not affiliated with Mindbody.",
+  "license": "MIT",
+  "author": "Richard Froom",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "pack:mcpb": "npm run build && mcpb validate manifest.json && mcpb pack . dist/mindbody-attendance-trends.mcpb"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "csv-parse": "^7.0.3",
+    "exceljs": "^4.4.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}

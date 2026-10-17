@@ -1,0 +1,14 @@
+{
+  "name": "mindbody-attendance-trends",
+  "description": "Local install source for the Mindbody Attendance Trends plugin (unofficial).",
+  "owner": {
+    "name": "Richard Froom"
+  },
+  "plugins": [
+    {
+      "name": "mindbody-attendance-trends",
+      "source": "./",
+      "description": "Find regulars whose attendance is slipping, from Mindbody report exports, on your own computer."
+    }
+  ]
+}
